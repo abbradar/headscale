@@ -118,6 +118,8 @@ type DERPConfig struct {
 	ServerRegionCode string
 	ServerRegionName string
 	STUNAddr         string
+	ServerIPv4       string
+	ServerIPv6       string
 	URLs             []url.URL
 	Paths            []string
 	AutoUpdate       bool
@@ -291,6 +293,8 @@ func GetDERPConfig() DERPConfig {
 	serverRegionCode := viper.GetString("derp.server.region_code")
 	serverRegionName := viper.GetString("derp.server.region_name")
 	stunAddr := viper.GetString("derp.server.stun_listen_addr")
+	serverIPv4 := viper.GetString("derp.server.ipv4")
+	serverIPv6 := viper.GetString("derp.server.ipv6")
 
 	if serverEnabled && stunAddr == "" {
 		log.Fatal().
@@ -322,6 +326,8 @@ func GetDERPConfig() DERPConfig {
 		ServerRegionID:   serverRegionID,
 		ServerRegionCode: serverRegionCode,
 		ServerRegionName: serverRegionName,
+		ServerIPv4:       serverIPv4,
+		ServerIPv6:       serverIPv6,
 		STUNAddr:         stunAddr,
 		URLs:             urls,
 		Paths:            paths,

@@ -75,6 +75,8 @@ func (h *Headscale) generateRegionLocalDERP() (tailcfg.DERPRegion, error) {
 				RegionID: h.cfg.DERP.ServerRegionID,
 				HostName: host,
 				DERPPort: port,
+				IPv4:     h.cfg.DERP.ServerIPv4,
+				IPv6:     h.cfg.DERP.ServerIPv6,
 			},
 		},
 	}
